@@ -24,6 +24,6 @@ group = null
 flat = true
 align = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Pause", "Theme", "Visibility", "custom_styles" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 
