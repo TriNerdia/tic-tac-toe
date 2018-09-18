@@ -111,4 +111,6 @@ bus = "Master"
 
 [connection signal="pressed" from="BoardButton1" to="." method="_on_BoardButton_pressed"]
 
+[connection signal="start_game" from="HUD" to="." method="_on_HUD_start_game"]
+
 

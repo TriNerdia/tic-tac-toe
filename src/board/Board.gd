@@ -6,7 +6,12 @@ var p1_turn = true
 var gameboard = [0,0,0,0,0,0,0,0,0]
 
 func _ready():
-	$BG_Music.play()
+	$Background.visible = false
+	var count = 1
+	while count < 10:
+		get_node("BoardButton"+str(count)).visible = false
+		count = count + 1
+	# $BG_Music.play()
 	#$BoardButton.connect("set_state", self, "button_pressed", [$BoardButton.text])
 
 func compare_index(indx1, indx2, indx3):
@@ -70,3 +75,11 @@ func button_pressed(Pressed_button):
 		print(gameboard)
 		Pressed_button.set_disabled(true)
 
+
+
+func _on_HUD_start_game():
+	$Background.visible = true
+	var count = 1
+	while count < 10:
+		get_node("BoardButton"+str(count)).visible = true
+		count = count + 1
