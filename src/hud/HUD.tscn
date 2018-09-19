@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://src/board/HUD.gd" type="Script" id=1]
+[ext_resource path="res://src/hud/HUD.gd" type="Script" id=1]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -60,7 +60,5 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin" ]
-
-[connection signal="pressed" from="StartBtn" to="." method="_on_StartBtn_pressed"]
 
 

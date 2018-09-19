@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="tic-tac-toe"
-run/main_scene="res://src/board/Board.tscn"
+run/main_scene="res://src/main/Main.tscn"
 config/icon="res://icon.png"
 
 [display]
