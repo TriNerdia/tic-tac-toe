@@ -11,10 +11,16 @@ func _ready():
 	# Connecting signals
 	$HUD.connect("start_game", self, "start_game")
 	$Board.connect("played_turn", self, "switch_player_turns")
+	$Board.connect("board_match", self, "game_won")
 	
 func start_game():
+	$Board.reset_board()
 	$Board.set_controller(player1.get_id())
 	$Board.visible = true
+
+func game_won():
+	$Board.visible = false
+	$HUD.show_message("Someone won")
 
 func switch_player_turns():
 	var controller = $Board.get_controller()
