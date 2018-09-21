@@ -25,12 +25,10 @@ func start_game():
 	$Background_Music.play()
 
 func game_won(player):
-	$Board.visible = false
-	$HUD.show_message(player.id + " won!!")
+	$HUD.show_message(player.id + " won!")
 	$Background_Music.stop()
 	
 func game_tied():
-	$Board.visible = false
 	$HUD.show_message("Game was tied.")
 	$Background_Music.stop()
 
