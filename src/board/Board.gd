@@ -6,6 +6,7 @@ extends Node2D
 
 signal turn_played
 signal board_matched(player)
+signal board_tied
 
 # Type: Player
 var _prev_controller = null
@@ -44,6 +45,16 @@ func _check_board_for_win():
 		if button1.text == button2.text and button2.text == button3.text:
 			return true	
 	return false
+	
+func _check_board_for_tie():
+	var count = 0
+	for button_id in $Buttons.get_child_count():
+		if $Buttons.get_child(button_id).text != "":
+			count += 1
+	
+	if count == 9:
+		return true
+	return false
 		
 func set_controller(player):
 	_prev_controller = _controller
@@ -65,3 +76,6 @@ func button_pressed(button):
 		# by the time the code reaches this point, the controller 
 		# of the board will have already been changed.
 		return emit_signal("board_matched", _prev_controller)
+		
+	elif _check_board_for_tie():
+		return emit_signal("board_tied")
