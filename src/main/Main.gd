@@ -2,11 +2,11 @@ extends Node2D
 
 var player1
 var player2
-const player_class = preload("res://src/main/Player.gd")
+const Player = preload("res://src/main/Player.gd")
 
 func _ready():
-	player1 = player_class.new("x")
-	player2 = player_class.new("o")
+	player1 = Player.new("x", $X_Sound)
+	player2 = Player.new("o", $O_Sound)
 	
 	# Connecting signals
 	$HUD.connect("start_game", self, "start_game")
@@ -15,16 +15,18 @@ func _ready():
 	
 func start_game():
 	$Board.reset_board()
-	$Board.set_controller(player1.get_id())
+	$Board.set_controller(player1)
 	$Board.visible = true
+	$Background_Music.play()
 
 func game_won():
 	$Board.visible = false
 	$HUD.show_message("Someone won")
+	$Background_Music.stop()
 
 func switch_player_turns():
 	var controller = $Board.get_controller()
-	if controller == player1.get_id():
-		$Board.set_controller(player2.get_id())
+	if controller.id == player1.id:
+		$Board.set_controller(player2)
 	else:
-		$Board.set_controller(player1.get_id())
+		$Board.set_controller(player1)

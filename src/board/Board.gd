@@ -3,7 +3,7 @@ extends Node2D
 signal played_turn
 signal board_match
 
-# This person has control over the entire board for the turn
+# Type: Player
 var _controller = ""
 
 var _match_patterns = [
@@ -40,8 +40,8 @@ func _check_board_for_win():
 			return true	
 	return false
 		
-func set_controller(player_id):
-	_controller = str(player_id)
+func set_controller(player):
+	_controller = player
 	
 func get_controller():
 	return _controller
@@ -50,7 +50,8 @@ func button_pressed(button):
 	# simple check to not override a button that has already
 	# been pressed
 	if button.text == "":
-		button.text = _controller
+		button.text = _controller.id
+		_controller.play_sound()
 		emit_signal("played_turn")
 		
 	if _check_board_for_win():
