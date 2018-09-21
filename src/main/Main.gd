@@ -23,9 +23,9 @@ func start_game():
 	$Board.visible = true
 	$Background_Music.play()
 
-func game_won():
+func game_won(player):
 	$Board.visible = false
-	$HUD.show_message("Someone won")
+	$HUD.show_message(player.id + " won!!")
 	$Background_Music.stop()
 
 func switch_player_turns():

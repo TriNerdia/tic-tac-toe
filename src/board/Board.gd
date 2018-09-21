@@ -5,10 +5,11 @@
 extends Node2D
 
 signal turn_played
-signal board_matched
+signal board_matched(player)
 
 # Type: Player
-var _controller = ""
+var _prev_controller = null
+var _controller = null
 
 var _match_patterns = [
 	# rows
@@ -45,6 +46,7 @@ func _check_board_for_win():
 	return false
 		
 func set_controller(player):
+	_prev_controller = _controller
 	_controller = player
 	
 func get_controller():
@@ -59,4 +61,7 @@ func button_pressed(button):
 		emit_signal("turn_played")
 		
 	if _check_board_for_win():
-		return emit_signal("board_matched")
+		# the reason the previous controller is returned is that
+		# by the time the code reaches this point, the controller 
+		# of the board will have already been changed.
+		return emit_signal("board_matched", _prev_controller)
