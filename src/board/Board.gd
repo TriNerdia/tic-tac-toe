@@ -4,7 +4,7 @@
 
 extends Node2D
 
-signal played_turn
+signal turn_played
 signal board_match
 
 # Type: Player
@@ -56,7 +56,7 @@ func button_pressed(button):
 	if button.text == "":
 		button.text = _controller.id
 		_controller.play_sound()
-		emit_signal("played_turn")
+		emit_signal("turn_played")
 		
 	if _check_board_for_win():
 		return emit_signal("board_match")
