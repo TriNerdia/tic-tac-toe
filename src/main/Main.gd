@@ -15,7 +15,7 @@ func _ready():
 	# Connecting signals
 	$HUD.connect("start_game", self, "start_game")
 	$Board.connect("turn_played", self, "switch_player_turns")
-	$Board.connect("board_match", self, "game_won")
+	$Board.connect("board_matched", self, "game_won")
 	
 func start_game():
 	$Board.reset_board()

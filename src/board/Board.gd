@@ -5,7 +5,7 @@
 extends Node2D
 
 signal turn_played
-signal board_match
+signal board_matched
 
 # Type: Player
 var _controller = ""
@@ -40,7 +40,7 @@ func _check_board_for_win():
 		if button1.text == "" and button2.text == "" and button3.text == "":
 			continue
 		
-		if button1.text == button2.text and button2.text == button3.text and button1.text == button3.text:
+		if button1.text == button2.text and button2.text == button3.text:
 			return true	
 	return false
 		
@@ -59,4 +59,4 @@ func button_pressed(button):
 		emit_signal("turn_played")
 		
 	if _check_board_for_win():
-		return emit_signal("board_match")
+		return emit_signal("board_matched")
