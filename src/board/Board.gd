@@ -30,6 +30,7 @@ func _ready():
 		button.connect("pressed", self, "button_pressed", [button])
 
 func reset_board():
+	get_tree().paused = false
 	for i in $Buttons.get_child_count():
 		$Buttons.get_child(i).text = ""
 		
@@ -75,7 +76,9 @@ func button_pressed(button):
 		# the reason the previous controller is returned is that
 		# by the time the code reaches this point, the controller 
 		# of the board will have already been changed.
+		get_tree().paused = true
 		return emit_signal("board_matched", _prev_controller)
 		
 	elif _check_board_for_tie():
+		get_tree().paused = true
 		return emit_signal("board_tied")
