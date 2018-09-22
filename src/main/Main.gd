@@ -8,10 +8,12 @@ var player1
 var player2
 const Player = preload("res://src/main/Player.gd")
 
+# AI Variables
+const CPU = preload("res://src/main/CPU.gd")
+var cpu_on = false
+signal CPU_Turn
+
 func _ready():
-	player1 = Player.new("x", $X_Sound)
-	player2 = Player.new("o", $O_Sound)
-	
 	# Connecting signals
 	$HUD.connect("start_game", self, "start_game")
 	$Board.connect("turn_played", self, "switch_player_turns")
@@ -19,6 +21,12 @@ func _ready():
 	$Board.connect("board_tied", self, "game_tied")
 	
 func start_game():
+	player1 = Player.new("x", $X_Sound)
+	if cpu_on:
+		player2 = CPU.new("o", $O_Sound, 0)
+	else:
+		player2 = Player.new("o", $O_Sound)
+	
 	$Board.reset_board()
 	$Board.set_controller(player1)
 	$Board.visible = true
@@ -38,3 +46,8 @@ func switch_player_turns():
 		$Board.set_controller(player2)
 	else:
 		$Board.set_controller(player1)
+	if $Board.get_controller().isType("CPU"):
+		emit_signal("CPU_Turn")
+
+func _on_HUD_CPU_On_Off():
+	cpu_on = !cpu_on

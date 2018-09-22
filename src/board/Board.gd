@@ -66,7 +66,32 @@ func set_controller(player):
 	_controller = player
 	
 func get_controller():
-	return _controller
+    return _controller
+    
+func press_button(button_id):
+    assert typeof(button_id) == TYPE_INT
+    if button_id >= 0 and button_id < $Buttons.get_child_count(): 
+        button_pressed($Buttons.get_child(button_id))
+        return true
+    return false
+
+func get_blank_buttons():
+    var free_spots = []
+    for i in $Buttons.get_child_count():
+        if $Buttons.get_child(i).text == "":
+            free_spots.append(i)
+    return free_spots
+
+func _on_World_CPU_Turn():
+    var playable_spots = get_blank_buttons()
+    if playable_spots == []:
+        return
+    $Buttons.get_child(playable_spots[rand_range(0,len(playable_spots))]).text = _controller.id
+    _controller.play_sound()
+    emit_signal("played_turn")
+    
+    if _check_board_for_win():
+        return emit_signal("board_match")
 
 func button_pressed(button):		
 	# simple check to not override a button that has already
@@ -85,4 +110,5 @@ func button_pressed(button):
 		
 	elif _check_board_for_tie():
 		_disable_board()
-		return emit_signal("board_tied")
+        return emit_signal("board_tied")
+        

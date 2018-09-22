@@ -109,4 +109,32 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Material", "Visibility", "custom_constants", "custom_fonts", "custom_styles" ]
 
+[node name="CPU_Btn" type="Button" parent="." index="2"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -75.0
+margin_right = -25.0
+margin_bottom = -25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "CPU OFF"
+flat = false
+align = 1
+_sections_unfolded = [ "Margin" ]
+
+[connection signal="toggled" from="CPU_Btn" to="." method="_on_CPU_Btn_toggled"]
+
 

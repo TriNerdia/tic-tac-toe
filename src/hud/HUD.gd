@@ -5,6 +5,7 @@
 extends CanvasLayer
 
 signal start_game
+signal CPU_On_Off
 
 func _ready():
 	$StartBtn.connect("pressed", self, "start_button_pressed")
@@ -17,4 +18,13 @@ func show_message(text):
 func start_button_pressed():
 	$StartBtn.hide()
 	$MessageLabel.hide()
+	$CPU_Btn.hide()
 	emit_signal("start_game")
+
+
+func _on_CPU_Btn_toggled(button_pressed):
+	emit_signal("CPU_On_Off")
+	if button_pressed:
+		$CPU_Btn.text = "CPU ON"
+	else:
+		$CPU_Btn.text = "CPU OFF"
