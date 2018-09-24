@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/main/Game.gd" type="Script" id=1]
-[ext_resource path="res://src/hud/GameHUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/hud/Scoreboard.tscn" type="PackedScene" id=2]
 
 [node name="Game" type="Node" index="0"]
 
@@ -24,12 +24,13 @@ size_flags_vertical = 1
 color = Color( 0.158623, 0.50382, 0.710938, 1 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="GameHUD" parent="." index="1" instance=ExtResource( 2 )]
+[node name="Scoreboard" parent="." index="1" instance=ExtResource( 2 )]
 
+editor/display_folded = true
 position = Vector2( 150, 500 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="GameHUD Background" type="ColorRect" parent="GameHUD" index="3"]
+[node name="Scoreboard Background" type="ColorRect" parent="Scoreboard" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
