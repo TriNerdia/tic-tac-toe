@@ -47,8 +47,6 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[connection signal="CPU_Turn" from="." to="Board" method="_on_World_CPU_Turn"]
-
 [connection signal="CPU_On_Off" from="HUD" to="." method="_on_HUD_CPU_On_Off"]
 
 

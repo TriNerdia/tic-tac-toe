@@ -111,4 +111,3 @@ func button_pressed(button):
 	elif _check_board_for_tie():
 		_disable_board()
         return emit_signal("board_tied")
-        

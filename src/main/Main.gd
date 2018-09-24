@@ -11,7 +11,6 @@ const Player = preload("res://src/main/Player.gd")
 # AI Variables
 const CPU = preload("res://src/main/CPU.gd")
 var cpu_on = false
-signal CPU_Turn
 
 func _ready():
 	# Connecting signals
@@ -46,8 +45,8 @@ func switch_player_turns():
 		$Board.set_controller(player2)
 	else:
 		$Board.set_controller(player1)
-	if $Board.get_controller().isType("CPU"):
-		emit_signal("CPU_Turn")
+	if $Board.get_controller().isType("CPU") && $Board.get_blank_buttons() != []:
+		$Board.press_button($Board.get_controller().CPU_Turn($Board.get_blank_buttons()))
 
 func _on_HUD_CPU_On_Off():
 	cpu_on = !cpu_on

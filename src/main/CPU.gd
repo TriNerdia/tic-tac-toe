@@ -14,4 +14,11 @@ func _set_cpu_lv(cpu_lv):
 	
 func get_cpu_lv():
 	return level
+	
+func CPU_Turn(playable_spots):
+	if playable_spots == []:
+		return -1
+	else:
+		return playable_spots[rand_range(0,len(playable_spots))]
+		
 
