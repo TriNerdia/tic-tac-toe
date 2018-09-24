@@ -15,10 +15,33 @@ func _set_cpu_lv(cpu_lv):
 func get_cpu_lv():
 	return level
 	
-func CPU_Turn(playable_spots):
+func match_two_winning(board, winning_patterns):
+	for section in winning_patterns:
+		var button1 = board[section[0]]
+		var button2 = board[section[1]]
+		var button3 = board[section[2]]
+		
+		if button2 != "" && button2 == button3:
+			if button1 == "":
+				return section[0]
+		if button1 != "" && button1 == button3:
+			if button2 == "":
+				return section[1]
+		if button1 != "" && button1 == button2:
+			if button3 == "":
+				return section[2]
+	return -1
+	
+func CPU_Turn(board, playable_spots, winning_patterns):
+	var picked_spot = -1
 	if playable_spots == []:
-		return -1
+		return picked_spot
 	else:
-		return playable_spots[rand_range(0,len(playable_spots))]
+		if level == 1:
+			picked_spot = match_two_winning(board, winning_patterns)
+		if picked_spot == -1:
+			return playable_spots[rand_range(0,len(playable_spots))]
+		else:
+			return picked_spot
 		
 

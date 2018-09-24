@@ -11,6 +11,7 @@ const Player = preload("res://src/main/Player.gd")
 # AI Variables
 const CPU = preload("res://src/main/CPU.gd")
 var cpu_on = false
+var cpu_level = 0
 
 func _ready():
 	# Connecting signals
@@ -22,7 +23,7 @@ func _ready():
 func start_game():
 	player1 = Player.new("x", $X_Sound)
 	if cpu_on:
-		player2 = CPU.new("o", $O_Sound, 0)
+		player2 = CPU.new("o", $O_Sound, cpu_level)
 	else:
 		player2 = Player.new("o", $O_Sound)
 	
@@ -45,8 +46,14 @@ func switch_player_turns():
 		$Board.set_controller(player2)
 	else:
 		$Board.set_controller(player1)
-	if $Board.get_controller().isType("CPU") && $Board.get_blank_buttons() != []:
-		$Board.press_button($Board.get_controller().CPU_Turn($Board.get_blank_buttons()))
+	if $Board.get_controller().isType("CPU"):
+		$Board.press_button(
+		$Board.get_controller().CPU_Turn(
+		$Board._get_board(), $Board.get_blank_buttons(),$Board._get_matching_patterns()))
 
 func _on_HUD_CPU_On_Off():
 	cpu_on = !cpu_on
+
+
+func _on_HUD_CPU_Lvl(Level):
+	cpu_level = Level

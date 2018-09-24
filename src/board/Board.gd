@@ -37,7 +37,16 @@ func reset_board():
 func _disable_board():
 	for i in $Buttons.get_child_count():
 		$Buttons.get_child(i).disabled = true
-
+		
+func _get_board():
+	var board = []
+	for i in $Buttons.get_child_count():
+		board.append($Buttons.get_child(i).text)
+	return board
+	
+func _get_matching_patterns():
+	return _match_patterns
+		
 func _check_board_for_win():
 	for section in _match_patterns:
 		var button1 = $Buttons.get_child(section[0])
