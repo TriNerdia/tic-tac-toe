@@ -11,7 +11,13 @@ config_version=3
 [application]
 
 config/name="tic-tac-toe"
+run/main_scene="res://src/main/Main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=600
+window/size/resizable=false
 
 [rendering]
 

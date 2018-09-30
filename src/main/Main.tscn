@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/main/Main.gd" type="Script" id=1]
+[ext_resource path="res://src/hud/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/board/Board.tscn" type="PackedScene" id=3]
+[ext_resource path="res://data/O.wav" type="AudioStream" id=4]
+[ext_resource path="res://data/x.wav" type="AudioStream" id=5]
+[ext_resource path="res://data/A_A_Aalto_-_Sneak.wav" type="AudioStream" id=6]
+
+[node name="World" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HUD" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="Board" parent="." index="1" instance=ExtResource( 3 )]
+
+visible = false
+
+[node name="O_Sound" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="X_Sound" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Background_Music" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 6 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+
