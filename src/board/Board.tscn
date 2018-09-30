@@ -1,10 +1,83 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/board/Board.gd" type="Script" id=1]
 [ext_resource path="res://data/board.png" type="Texture" id=2]
 [ext_resource path="res://data/x.wav" type="AudioStream" id=3]
 [ext_resource path="res://data/O.wav" type="AudioStream" id=4]
 [ext_resource path="res://src/board/BoardButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://data/ACMESecretAgentBB_BoldItal.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 96
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 96
+use_mipmaps = true
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 96
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 96
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 96
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=6]
+
+size = 96
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=7]
+
+size = 96
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=8]
+
+size = 96
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=9]
+
+size = 96
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Board" type="Node2D"]
 
@@ -54,6 +127,8 @@ margin_left = 92.0
 margin_top = 88.0
 margin_right = 192.0
 margin_bottom = 188.0
+custom_fonts/font = SubResource( 1 )
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Button2" parent="Buttons" index="1" instance=ExtResource( 5 )]
 
@@ -61,6 +136,8 @@ margin_left = 241.0
 margin_top = 92.0
 margin_right = 341.0
 margin_bottom = 192.0
+custom_fonts/font = SubResource( 2 )
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Button3" parent="Buttons" index="2" instance=ExtResource( 5 )]
 
@@ -68,6 +145,8 @@ margin_left = 398.0
 margin_top = 89.0
 margin_right = 498.0
 margin_bottom = 189.0
+custom_fonts/font = SubResource( 3 )
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Button4" parent="Buttons" index="3" instance=ExtResource( 5 )]
 
@@ -75,6 +154,8 @@ margin_left = 85.0
 margin_top = 241.0
 margin_right = 185.0
 margin_bottom = 341.0
+custom_fonts/font = SubResource( 4 )
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Button5" parent="Buttons" index="4" instance=ExtResource( 5 )]
 
@@ -82,6 +163,8 @@ margin_left = 239.0
 margin_top = 244.0
 margin_right = 339.0
 margin_bottom = 344.0
+custom_fonts/font = SubResource( 5 )
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Button6" parent="Buttons" index="5" instance=ExtResource( 5 )]
 
@@ -89,6 +172,8 @@ margin_left = 398.0
 margin_top = 245.0
 margin_right = 498.0
 margin_bottom = 345.0
+custom_fonts/font = SubResource( 6 )
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Button7" parent="Buttons" index="6" instance=ExtResource( 5 )]
 
@@ -96,6 +181,8 @@ margin_left = 93.0
 margin_top = 393.0
 margin_right = 193.0
 margin_bottom = 493.0
+custom_fonts/font = SubResource( 7 )
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Button8" parent="Buttons" index="7" instance=ExtResource( 5 )]
 
@@ -103,6 +190,8 @@ margin_left = 239.0
 margin_top = 395.0
 margin_right = 339.0
 margin_bottom = 495.0
+custom_fonts/font = SubResource( 8 )
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Button9" parent="Buttons" index="8" instance=ExtResource( 5 )]
 
@@ -110,5 +199,7 @@ margin_left = 397.0
 margin_top = 398.0
 margin_right = 497.0
 margin_bottom = 498.0
+custom_fonts/font = SubResource( 9 )
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 
