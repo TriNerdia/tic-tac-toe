@@ -19,6 +19,7 @@ func _ready():
 	$Board.connect("turn_played", self, "switch_player_turns")
 	$Board.connect("board_matched", self, "game_won")
 	$Board.connect("board_tied", self, "game_tied")
+	randomize()
 	
 func start_game():
 	player1 = Player.new("x", $X_Sound)
@@ -31,14 +32,17 @@ func start_game():
 	$Board.set_controller(player1)
 	$Board.visible = true
 	$Background_Music.play()
+	$CPU_Timer.stop()
 
 func game_won(player):
 	$HUD.show_message(player.id + " won!")
 	$Background_Music.stop()
+	$CPU_Timer.stop()
 	
 func game_tied():
 	$HUD.show_message("Game was tied.")
 	$Background_Music.stop()
+	$CPU_Timer.stop()
 
 func switch_player_turns():
 	var controller = $Board.get_controller()
@@ -47,9 +51,15 @@ func switch_player_turns():
 	else:
 		$Board.set_controller(player1)
 	if $Board.get_controller().isType("CPU"):
-		$Board.press_button(
-		$Board.get_controller().CPU_Turn(
-		$Board._get_board(), $Board.get_blank_buttons(),$Board._get_matching_patterns()))
+		$Board._disable_board()
+		$CPU_Timer.start()
+		
+
+func _on_CPU_Timer_timeout():
+	$Board._enable_board()
+	$Board.press_button(
+	$Board.get_controller().CPU_Turn(
+	$Board._get_board(), $Board.get_blank_buttons(),$Board._get_matching_patterns()))
 
 func _on_HUD_CPU_On_Off():
 	cpu_on = !cpu_on
