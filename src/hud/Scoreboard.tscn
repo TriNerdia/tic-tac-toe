@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/hud/Scoreboard.gd" type="Script" id=1]
+[ext_resource path="res://data/ACMESecretAgentBB_BoldItal.ttf" type="DynamicFontData" id=2]
 
-[node name="Scoreboard" type="Node2D"]
+[sub_resource type="DynamicFont" id=1]
+
+size = 24
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Resource", "Settings" ]
+
+[node name="Scoreboard" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -36,13 +45,14 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
 text = "Key"
 align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_colors" ]
 
 [node name="Value" type="Label" parent="Player1" index="1"]
 
@@ -59,6 +69,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
 text = "Value"
 align = 1
 valign = 1
@@ -98,6 +109,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
 text = "Tie"
 align = 1
 valign = 1
@@ -121,6 +133,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
 text = "Value"
 align = 1
 valign = 1
@@ -160,6 +173,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
 text = "Key"
 align = 1
 valign = 1
@@ -183,6 +197,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
 text = "Value"
 align = 1
 valign = 1
