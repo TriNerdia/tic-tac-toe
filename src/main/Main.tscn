@@ -7,7 +7,7 @@
 [ext_resource path="res://data/x.wav" type="AudioStream" id=5]
 [ext_resource path="res://data/A_A_Aalto_-_Sneak.wav" type="AudioStream" id=6]
 
-[node name="World" type="Node2D" index="0"]
+[node name="World" type="Node2D"]
 
 script = ExtResource( 1 )
 __meta__ = {
