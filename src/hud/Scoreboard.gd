@@ -4,11 +4,21 @@
 
 extends Node2D
 
+var _highlight_color = "eff163"
+
 func _ready():
 	$Player1/Value.text = "0"
 	$Player2/Value.text = "0"
 	$Tie/Value.text = "0"
-	
+
+func highlight_board_controller(id):
+	if id == $Player1/Key.text:
+		$Player1/Key.add_color_override("font_color", Color(_highlight_color))
+		$Player1/Value.add_color_override("font_color", Color(_highlight_color))
+	elif id == $Player2/Key.text:
+		$Player2/Key.add_color_override("font_color", Color(_highlight_color))
+		$Player2/Value.add_color_override("font_color", Color(_highlight_color))
+
 func _set_score(label, score):
 	assert label is Label
 	assert typeof(score) == TYPE_INT
