@@ -6,15 +6,18 @@
 
 extends Node2D
 
+# Custom Signals
+
+# Variables
 var player1
 var player2
 const Player = preload("res://src/main/Player.gd")
 
-# AI Variables
 const CPU = preload("res://src/main/CPU.gd")
 var cpu_on = false
 var cpu_level = 0
 
+# Godot Engine Functions
 func _ready():
 	# Connecting signals
 	$HUD.connect("start_game", self, "start_game")
@@ -22,7 +25,8 @@ func _ready():
 	$Board.connect("board_matched", self, "game_won")
 	$Board.connect("board_tied", self, "game_tied")
 	randomize()
-	
+
+# Local Functions	
 func start_game():
 	player1 = Player.new("x", $X_Sound)
 	if cpu_on:

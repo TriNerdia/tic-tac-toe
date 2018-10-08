@@ -6,11 +6,17 @@
 
 extends "res://src/main/Player.gd"
 
+# Custom Signals
+
+# Variables
 # How strong is CPU - Easy, 0 - Normal, 1
 var level
 
+# Godot Engine Functions
 func _init(cpu_id, cpu_sound, cpu_lv).(cpu_id,cpu_sound):
 	_set_cpu_lv(cpu_lv)
+
+# Local Functions
 	
 func isType(type):
 	return "CPU" == type

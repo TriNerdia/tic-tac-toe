@@ -6,10 +6,12 @@
 
 extends Node2D
 
+# Custom Signals
 signal turn_played
 signal board_matched(player)
 signal board_tied
 
+# Variables
 # Type: Player
 var _prev_controller = null
 var _controller = null
@@ -25,12 +27,14 @@ var _match_patterns = [
 	[0,4,8],[6,4,2]
 ]
 
+# Godot Engine Functions
 func _ready():
 	# Setting the pressed event on all the buttons on the board
 	for i in $Buttons.get_child_count():
 		var button = $Buttons.get_child(i)
 		button.connect("pressed", self, "button_pressed", [button])
 
+# Local Functions
 func reset_board():
 	for i in $Buttons.get_child_count():
 		$Buttons.get_child(i).text = ""

@@ -6,13 +6,18 @@
 
 extends CanvasLayer
 
+# Custom Signals
 signal start_game
 signal CPU_On_Off
 signal CPU_Lvl(Level)
 
+# Variables
+
+# Godot Engine Functions
 func _ready():
 	$StartBtn.connect("pressed", self, "start_button_pressed")
 
+# Local Functions
 func show_message(text):
 	$MessageLabel.text = text
 	$MessageLabel.show()

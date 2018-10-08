@@ -4,13 +4,18 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+# Custom Signals
+
+# Variables
 var id = "" setget ,get_id
 var sound = null
 
+# Godot Engine Functions
 func _init(player_id, player_sound):
 	_set_id(player_id)
 	_set_sound(player_sound)
-	
+
+# Local Functions
 func isType(type):
 	return "Player" == type
 	

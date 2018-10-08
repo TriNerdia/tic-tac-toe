@@ -6,18 +6,15 @@
 
 extends Node
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Custom Signals
 signal return_mm
 
+# Variables
+
+# Godot Engine Functions
 func _ready():
 	$BackBtn.connect("pressed", self, "return_mainmenu")
 
+# Local Functions
 func return_mainmenu():
 	emit_signal("return_mm")
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass

@@ -6,5 +6,12 @@
 
 extends Node2D
 
+# Custom Signals
+
+# Variables
+
+# Godot Engine Functions
 func _ready():
 	$"Menu List/SinglePlayerButton".grab_focus()
+
+# Local Functions
