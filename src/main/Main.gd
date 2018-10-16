@@ -21,10 +21,10 @@ func _ready():
 	$Board.connect("board_matched", self, "game_won")
 	$Board.connect("board_tied", self, "game_tied")
 	
-func update_settings(vol_master,vol_music,vol_sound,cpu_level):
+func update_settings(vol_music,vol_sound,cpu_level):
 	$HUD.show_message("Tic-Tac-Toe")
 	$Settings.visible = false
-	print(str(vol_master) + " " + str(vol_music) + " " + str(vol_sound) + " " + str(cpu_level))
+	print(str(vol_music) + " " + str(vol_sound) + " " + str(cpu_level))
 	$Background_Music.volume_db = vol_music
 	$X_Sound.volume_db = vol_sound
 	$O_Sound.volume_db = vol_sound
