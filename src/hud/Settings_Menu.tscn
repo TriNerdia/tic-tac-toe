@@ -21,6 +21,8 @@ _sections_unfolded = [ "Rect" ]
 __meta__ = {
 "_edit_horizontal_guides_": [ 29.8477 ]
 }
+MAX_SOUND = 0
+MAX_MUSIC = -15
 
 [node name="Header" type="Container" parent="." index="0"]
 
@@ -102,7 +104,6 @@ size_flags_vertical = 1
 
 [node name="Vol_Master" type="Container" parent="Sliders" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -160,10 +161,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 min_value = 0.0
-max_value = 100.0
-step = 1.0
+max_value = 1.0
+step = 0.01
 page = 0.0
-value = 100.0
+value = 1.0
 exp_edit = false
 rounded = false
 editable = true
@@ -229,11 +230,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-min_value = 0.0
-max_value = 100.0
+min_value = -55.0
+max_value = -15.0
 step = 1.0
 page = 0.0
-value = 100.0
+value = -15.0
 exp_edit = false
 rounded = false
 editable = true
@@ -299,11 +300,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-min_value = 0.0
-max_value = 100.0
+min_value = -40.0
+max_value = 0.0
 step = 1.0
 page = 0.0
-value = 100.0
+value = 0.0
 exp_edit = false
 rounded = false
 editable = true

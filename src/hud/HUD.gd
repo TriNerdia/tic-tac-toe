@@ -5,16 +5,26 @@
 extends CanvasLayer
 
 signal start_game
+signal goto_settings
 
 func _ready():
 	$StartBtn.connect("pressed", self, "start_button_pressed")
+	$SettingBtn.connect("pressed", self, "open_settings")
 
 func show_message(text):
 	$MessageLabel.text = text
 	$MessageLabel.show()
+	$SettingBtn.show()
 	$StartBtn.show()
+	
+func open_settings():
+	$StartBtn.hide()
+	$MessageLabel.hide()
+	$SettingBtn.hide()
+	emit_signal("goto_settings")
 	
 func start_button_pressed():
 	$StartBtn.hide()
 	$MessageLabel.hide()
+	$SettingBtn.hide()
 	emit_signal("start_game")
